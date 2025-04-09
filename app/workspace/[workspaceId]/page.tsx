@@ -6,6 +6,12 @@ import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import WorkspaceGreeting from "@/components/work-space-greeting/greeting";
+import {
+  FluentProvider,
+  teamsDarkTheme,
+  webDarkTheme,
+  webLightTheme,
+} from "@fluentui/react-components";
 
 import { useMemo, ReactNode, useState } from "react";
 import {
@@ -45,6 +51,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Id } from "@/convex/_generated/dataModel";
+import {
+  DateRangeType,
+  Calendar as FluentCalendar,
+} from "@fluentui/react-calendar-compat";
+
 interface LoadingStateProps {
   isLoading: boolean;
   skeleton: ReactNode;
@@ -252,25 +263,29 @@ const ShortcutSection = ({ isAdmin }: { isAdmin: boolean }) => {
             {quickLinks && quickLinks?.length > 0 && (
               <div className="flex flex-wrap gap-4 justify-start w-full px-4">
                 {quickLinks?.map((link) => (
-                  <NextLink
+                  <div
                     key={link._id}
-                    href={link.url}
                     className="cursor-pointer group flex items-center bg-card px-4 w-[250px] h-[56px] border-[0.5px] border-border rounded-md gap-4 hover:shadow-md transition-shadow"
-                    target="_blank"
                   >
-                    <div className="flex-shrink-0 size-8 rounded p-2 bg-muted grid place-items-center">
-                      <Link className="size-4 stroke-2 text-muted-foreground" />
-                    </div>
-                    <div className="flex-1 truncate">
-                      <div className="text-sm font-medium truncate">
-                        {link.name}
+                    <NextLink
+                      href={link.url}
+                      target="_blank"
+                      className="flex items-center gap-4"
+                    >
+                      <div className="flex-shrink-0 size-8 rounded p-2 bg-muted grid place-items-center">
+                        <Link className="size-4 stroke-2 text-muted-foreground" />
                       </div>
-                      <div className="text-xs font-medium text-muted-foreground">
-                        {link.url}
+                      <div className="flex-1 truncate">
+                        <div className="text-sm font-medium truncate">
+                          {link.name}
+                        </div>
+                        <div className="text-xs font-medium text-muted-foreground">
+                          {link.url}
+                        </div>
                       </div>
-                    </div>
+                    </NextLink>
                     <div className="group-hover:block">
-                      <DropdownMenu>
+                      <DropdownMenu modal={false}>
                         <DropdownMenuTrigger asChild>
                           <Button
                             variant="ghost"
@@ -284,8 +299,6 @@ const ShortcutSection = ({ isAdmin }: { isAdmin: boolean }) => {
                           <DropdownMenuItem
                             className="cursor-pointer"
                             onClick={(e) => {
-                              e.stopPropagation();
-                              e.preventDefault();
                               handleEdit(link);
                             }}
                           >
@@ -295,8 +308,6 @@ const ShortcutSection = ({ isAdmin }: { isAdmin: boolean }) => {
                           <DropdownMenuItem
                             className="cursor-pointer"
                             onClick={(e) => {
-                              e.stopPropagation();
-                              e.preventDefault();
                               handleDelete(link._id);
                             }}
                           >
@@ -306,7 +317,7 @@ const ShortcutSection = ({ isAdmin }: { isAdmin: boolean }) => {
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </div>
-                  </NextLink>
+                  </div>
                 ))}
               </div>
             )}
@@ -380,7 +391,28 @@ const CalendarSection = ({ isAdmin }: { isAdmin: boolean }) => (
     }
   >
     <div className="flex flex-col md:flex-row gap-4">
-      <Calendar className="bg-card rounded-md" fixedWeeks />
+      {/* <Calendar className="bg-card rounded-md" fixedWeeks /> */}
+      <FluentProvider
+        style={{
+          background: "none",
+        }}
+        theme={{
+          ...webDarkTheme,
+          colorBrandBackgroundInvertedSelected: "oklch(0.3 0.01 250)",
+          colorNeutralForeground1Static: "oklch(0.95 0.01 250)",
+          colorBrandBackgroundInvertedHover: "oklch(0.3 0.01 250)",
+          colorBrandBackground: "oklch(0.65 0.2 250)",
+          colorBrandForegroundOnLightHover: "oklch(0.65 0.2 250)",
+        }}
+      >
+        <div className="bg-card rounded-md h-full w-full flex justify-center items-center">
+          <FluentCalendar
+            className="bg-card rounded-md h-full w-full"
+            showMonthPickerAsOverlay
+            dateRangeType={DateRangeType.Week}
+          />
+        </div>
+      </FluentProvider>
       <ScrollArea className="h-82 w-full rounded-md border bg-card"></ScrollArea>
     </div>
   </Section>

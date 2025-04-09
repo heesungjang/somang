@@ -54,6 +54,7 @@ export const QuickNav = () => {
       <SidebarMenuItem>
         {defaultItems.map((item, index) => (
           <SidebarMenuButton
+            tooltip={item.label}
             className="mb-1"
             key={index}
             asChild={Boolean(item.href)}
