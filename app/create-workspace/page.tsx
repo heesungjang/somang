@@ -13,7 +13,7 @@ import StickyHeader from "@/components/ui/sticky-header";
 const CreateWorkspacePage = () => {
   const router = useRouter();
   const viewer = useViewer();
-  const createWorkspace = useMutation(api.workspace.createWorkspace);
+  const createWorkspace = useMutation(api.workspace_mutation.createWorkspace);
 
   const [workspaceName, setWorkspaceName] = useState("");
 

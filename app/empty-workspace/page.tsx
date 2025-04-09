@@ -56,11 +56,6 @@ const EmptyWorkspacePage = () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 w-full justify-center">
             <ActionButton
-              icon={LogIn}
-              title="워크스페이스 참여"
-              description="기존 워크스페이스에 참여하기"
-            />
-            <ActionButton
               icon={CirclePlus}
               title="워크스페이스 생성"
               description="새로운 워크스페이스 만들기"

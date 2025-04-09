@@ -1,6 +1,10 @@
 import { v } from "convex/values";
-import { mutation, query } from "./_generated/server";
+import { query } from "./_generated/server";
 
+/**
+ * @workspaces
+ * This query is used to get all workspaces for a user.
+ */
 export const workspaces = query({
   args: {
     ownerId: v.id("users"),
@@ -20,6 +24,10 @@ export const workspaces = query({
   },
 });
 
+/**
+ * @workspace
+ * This query is used to get a workspace by its id.
+ */
 export const workspace = query({
   args: {
     workspaceId: v.id("workspaces"),
@@ -33,31 +41,20 @@ export const workspace = query({
   },
 });
 
-export const createWorkspace = mutation({
+export const workspaceQuickLinks = query({
   args: {
-    workspaceName: v.string(),
-    ownerId: v.id("users"),
+    workspaceId: v.id("workspaces"),
   },
   handler: async (ctx, args) => {
-    const workspaceId = await ctx.db.insert("workspaces", {
-      name: args.workspaceName,
-      ownerId: args.ownerId,
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-    });
+    const quickLinks = await ctx.db
+      .query("workspaceQuickLinks")
+      .filter((q) => q.eq(q.field("workspaceId"), args.workspaceId))
+      .collect();
 
-    await ctx.db.insert("workspaceMembers", {
-      userId: args.ownerId,
-      workspaceId: workspaceId,
-      role: "admin",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-    });
+    if (quickLinks.length === 0) {
+      return [];
+    }
 
-    await ctx.db.patch(args.ownerId, {
-      defaultWorkspaceId: workspaceId,
-    });
-
-    return workspaceId;
+    return quickLinks;
   },
 });

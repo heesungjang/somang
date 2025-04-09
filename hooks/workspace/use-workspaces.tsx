@@ -8,7 +8,7 @@ interface IUseWorkspaces {
 
 const useWorkspaces = ({ userId }: IUseWorkspaces) => {
   const workspaces = useQuery(
-    api.workspace.workspaces,
+    api.workspace_query.workspaces,
     userId ? { ownerId: userId } : "skip",
   );
 

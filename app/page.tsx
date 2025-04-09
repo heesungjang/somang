@@ -16,8 +16,8 @@ export default function RootRouter() {
 
   useEffect(() => {
     if (viewer) {
-      if (workspaces?.length === 0) {
-        router.push("/create-workspace");
+      if (!workspaces) {
+        router.push("/empty-workspace");
       } else if (viewer.defaultWorkspaceId) {
         router.push(`/workspace/${viewer.defaultWorkspaceId}`);
       }

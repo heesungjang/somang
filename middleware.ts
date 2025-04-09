@@ -11,6 +11,7 @@ const isProtectedRoute = createRouteMatcher([
   "/workspace/:workspaceId",
   "/server",
   "/empty-workspace",
+  "/create-workspace",
 ]);
 
 export default convexAuthNextjsMiddleware(async (request, { convexAuth }) => {

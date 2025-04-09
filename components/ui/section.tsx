@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 interface SectionProps {
   title: string;
   titleLink?: string;
-  addButtonText: string;
+  action: string | ReactNode;
   children: ReactNode;
   className?: string;
 }
@@ -17,7 +17,8 @@ interface SectionProps {
 export function Section({
   title,
   titleLink,
-  addButtonText,
+
+  action,
   children,
   className,
 }: SectionProps) {
@@ -35,10 +36,7 @@ export function Section({
         ) : (
           <Label>{title}</Label>
         )}
-        <Button variant="link" className="cursor-pointer">
-          <Plus />
-          {addButtonText}
-        </Button>
+        {action && action}
       </div>
       {children}
     </div>

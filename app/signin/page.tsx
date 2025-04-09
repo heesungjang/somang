@@ -1,15 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Sparkles } from "@/components/ui/sparkels";
 import { cn } from "@/lib/utils";
 import { useAuthActions } from "@convex-dev/auth/react";
 import { GalleryVerticalEnd } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import Link from "next/link";
 
 type AuthProvider = "google" | "password";
 
@@ -84,8 +82,8 @@ export default function SignIn() {
       </div>
       <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary z-10">
         계속하면 서비스 약관에 동의하는 것으로 간주합니다.{" "}
-        <a href="/terms">서비스 약관</a> 과{" "}
-        <a href="/privacy">개인정보 보호 정책</a>.
+        <Link href="/terms">서비스 약관</Link> 과{" "}
+        <Link href="/privacy">개인정보 보호 정책</Link>.
       </div>
     </div>
   );

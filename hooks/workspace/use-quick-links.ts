@@ -2,17 +2,17 @@ import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 
-interface IUseWorkspace {
+interface IUseQuickLinks {
   workspaceId: Id<"workspaces"> | null | undefined;
 }
 
-const useWorkspace = ({ workspaceId }: IUseWorkspace) => {
-  const workspace = useQuery(
-    api.workspace_query.workspace,
+const useQuickLinks = ({ workspaceId }: IUseQuickLinks) => {
+  const quickLinks = useQuery(
+    api.workspace_query.workspaceQuickLinks,
     workspaceId ? { workspaceId } : "skip",
   );
 
-  return workspace || null;
+  return quickLinks || null;
 };
 
-export default useWorkspace;
+export default useQuickLinks;
