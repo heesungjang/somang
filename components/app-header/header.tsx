@@ -1,6 +1,6 @@
 const AppHeader = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <div className="flex items-center justify-between min-h-14 px-4 border-b-2 border-b-zinc-200 dark:border-b-zinc-800">
+    <div className="flex items-center justify-between min-h-14 px-4 border-b-1 border-b-zinc-200 dark:border-b-zinc-800">
       {children}
     </div>
   );
