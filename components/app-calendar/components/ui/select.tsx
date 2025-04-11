@@ -20,7 +20,7 @@ const SelectTrigger = forwardRef<TSelectTriggerRef, TSelectTriggerProps>(
     <SelectPrimitive.Trigger
       ref={ref}
       className={cn(
-        "group flex h-9 w-full items-center justify-between rounded-md border border-b-primary bg-bg-primary px-3 py-2 text-sm",
+        "group flex h-9 w-full items-center justify-between rounded-md border border-b-muted bg-bg-primary px-3 py-2 text-sm",
         "data-[placeholder]:text-t-placeholder",
         "[&_span]:line-clamp-1 [&_span]:text-start",
         "disabled:cursor-not-allowed disabled:opacity-50",
@@ -116,7 +116,7 @@ const SelectContent = forwardRef<TSelectContentRef, TSelectContentProps>(
         ref={ref}
         position="popper"
         className={cn(
-          "relative z-50 max-h-96 overflow-hidden rounded-md border border-b-primary bg-bg-primary",
+          "relative z-50 max-h-96 overflow-hidden rounded-md border border-b-muted bg-bg-primary",
           "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
           "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
           "data-[side=bottom]:translate-y-1 data-[side=bottom]:slide-in-from-top-2",

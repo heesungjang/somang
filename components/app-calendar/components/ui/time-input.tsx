@@ -44,7 +44,7 @@ const TimeInput = forwardRef<TTimeInputRef, TTimeInputProps>(
       >
         <DateInput
           className={cn(
-            "peer inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-md border border-b-primary bg-bg-primary px-3 py-2 text-sm",
+            "peer inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-md border border-b-muted bg-bg-primary px-3 py-2 text-sm",
             "data-[focus-within]:outline-none data-[focus-within]:ring-2 data-[focus-within]:ring-ring data-[focus-within]:ring-offset-1 data-[focus-within]:ring-offset-bg-primary",
             "data-[disabled]:cursor-not-allowed data-[disabled]:bg-bg-disabled data-[disabled]:text-t-disabled",
             "data-[invalid=true]:border-error-500 data-[invalid=true]:bg-error-50 data-[invalid=true]:pr-9 data-[invalid=true]:data-[focus-within]:ring-error-300",

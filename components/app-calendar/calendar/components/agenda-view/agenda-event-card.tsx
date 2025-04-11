@@ -28,17 +28,17 @@ const agendaEventCardVariants = cva(
 
         // Dot variants
         "blue-dot":
-          "border-b-primary bg-bg-secondary text-t-primary [&_.event-dot]:fill-blue-600",
+          "border-b-primary bg-secondary text-t-primary [&_.event-dot]:fill-blue-600",
         "green-dot":
-          "border-b-primary bg-bg-secondary text-t-primary [&_.event-dot]:fill-green-600",
+          "border-b-primary bg-secondary text-t-primary [&_.event-dot]:fill-green-600",
         "red-dot":
-          "border-b-primary bg-bg-secondary text-t-primary [&_.event-dot]:fill-red-600",
+          "border-b-primary bg-secondary text-t-primary [&_.event-dot]:fill-red-600",
         "orange-dot":
-          "border-b-primary bg-bg-secondary text-t-primary [&_.event-dot]:fill-orange-600",
+          "border-b-primary bg-secondary text-t-primary [&_.event-dot]:fill-orange-600",
         "purple-dot":
-          "border-b-primary bg-bg-secondary text-t-primary [&_.event-dot]:fill-purple-600",
+          "border-b-primary bg-secondary text-t-primary [&_.event-dot]:fill-purple-600",
         "yellow-dot":
-          "border-b-primary bg-bg-secondary text-t-primary [&_.event-dot]:fill-yellow-600",
+          "border-b-primary bg-secondary text-t-primary [&_.event-dot]:fill-yellow-600",
       },
     },
     defaultVariants: {

@@ -131,7 +131,7 @@ const ShortcutSection = ({ isAdmin }: { isAdmin: boolean }) => {
   const renderLinkItem = (link: any) => (
     <div
       key={link._id}
-      className="cursor-pointer group flex items-center justify-between bg-card px-4 w-[250px] h-[56px] border-[0.5px] border-border rounded-md hover:shadow-md transition-shadow"
+      className="cursor-pointer group flex items-center justify-between bg-card px-4 w-[250px] h-[56px] border-[0.5px] border-border rounded-md hover:shadow-sm transition-shadow"
     >
       <NextLink
         href={link.url}

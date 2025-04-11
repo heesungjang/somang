@@ -59,7 +59,7 @@ const VerseSection = ({ isAdmin }: { isAdmin: boolean }) => (
       </Button>
     }
   >
-    <Alert>
+    <Alert className="rounded-md">
       <Cross className="h-4 w-4" />
       <AlertTitle>요한복은 3:16</AlertTitle>
       <AlertDescription>

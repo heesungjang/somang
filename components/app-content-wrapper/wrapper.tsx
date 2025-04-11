@@ -57,7 +57,7 @@ const AppContentWrapper = ({ children }: { children?: React.ReactNode }) => {
         <AppHeader.Right></AppHeader.Right>
       </AppHeader>
       <div className="flex flex-col p-6 w-full h-full overflow-scroll">
-        <div className="flex flex-col gap-8 mb-12">{children}</div>
+        <div className="flex flex-col gap-8">{children}</div>
       </div>
     </div>
   );

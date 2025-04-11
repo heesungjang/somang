@@ -35,7 +35,7 @@ const buttonVariants = cva(
         primary:
           "bg-primary-600 text-white hover:bg-primary-700 disabled:bg-bg-disabled disabled:text-t-disabled",
         outline:
-          "border border-b-primary hover:bg-bg-primary-hover disabled:text-t-disabled disabled:opacity-50 disabled:hover:bg-transparent",
+          "border border-b-muted hover:bg-bg-primary-hover disabled:text-t-disabled disabled:opacity-50 disabled:hover:bg-transparent",
         ghost:
           "hover:bg-bg-primary-hover disabled:text-t-disabled disabled:opacity-50 disabled:hover:bg-transparent",
         link: "h-fit rounded-sm px-0 hover:underline disabled:text-t-disabled disabled:opacity-50 disabled:hover:no-underline",

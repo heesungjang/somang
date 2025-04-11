@@ -20,6 +20,8 @@ import { AddEventDialog } from "@/components/app-calendar/calendar/components/di
 
 import type { IEvent } from "@/components/app-calendar/calendar/interfaces";
 import type { TCalendarView } from "@/components/app-calendar/calendar/types";
+import useViewer from "@/hooks/user/use-viewer";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface IProps {
   view: TCalendarView;
@@ -27,18 +29,30 @@ interface IProps {
 }
 
 export function CalendarHeader({ view, events }: IProps) {
+  const viewer = useViewer();
+  const workspaceId = viewer?.defaultWorkspaceId;
+
+  if (!workspaceId) {
+    return (
+      <div className="flex flex-col gap-4 border-b pb-4 lg:flex-row lg:items-center lg:justify-between">
+        <Skeleton className="h-9 w-full" />
+        <Skeleton className="h-9 w-full" />
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col gap-4 border-b p-4 lg:flex-row lg:items-center lg:justify-between">
+    <div className="flex flex-col gap-4 border-b pb-4 lg:flex-row lg:items-center lg:justify-between">
       <div className="flex items-center gap-3">
         <TodayButton />
         <DateNavigator view={view} events={events} />
       </div>
 
-      <div className="flex flex-col items-center gap-1.5 sm:flex-row sm:justify-between">
+      <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
         <div className="flex w-full items-center gap-1.5">
           <ButtonGroup>
             <Button asChild aria-label="View by day">
-              <Link href="/day-view">
+              <Link href={`/workspace/${workspaceId}/calendar/day-view`}>
                 <List strokeWidth={1.8} />
               </Link>
             </Button>
@@ -48,35 +62,38 @@ export function CalendarHeader({ view, events }: IProps) {
               aria-label="View by week"
               className="hidden md:flex"
             >
-              <Link href="/week-view">
+              <Link href={`/workspace/${workspaceId}/calendar/week-view`}>
                 <Columns strokeWidth={1.8} />
               </Link>
             </Button>
 
             <Button asChild aria-label="View by month">
-              <Link href="/month-view">
+              <Link href={`/workspace/${workspaceId}/calendar/month-view`}>
                 <Grid2x2 strokeWidth={1.8} />
               </Link>
             </Button>
 
-            <Button asChild aria-label="View by year">
-              <Link href="/year-view">
+            {/* <Button asChild aria-label="View by year">
+              <Link href={`/workspace/${workspaceId}/calendar/year-view`}>
                 <Grid3x3 strokeWidth={1.8} />
               </Link>
-            </Button>
+            </Button> */}
 
-            <Button asChild aria-label="View by agenda">
-              <Link href="/agenda-view">
+            {/* <Button asChild aria-label="View by agenda">
+              <Link href={`/workspace/${workspaceId}/calendar/agenda-view`}>
                 <CalendarRange strokeWidth={1.8} />
               </Link>
-            </Button>
+            </Button> */}
           </ButtonGroup>
 
-          <UserSelect />
+          {/* <UserSelect /> */}
         </div>
 
         <AddEventDialog>
-          <Button size="sm" className="w-full sm:w-auto">
+          <Button
+            size="sm"
+            className="w-full sm:w-auto bg-primary cursor-pointer"
+          >
             <Plus />
             Add Event
           </Button>

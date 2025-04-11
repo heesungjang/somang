@@ -24,7 +24,7 @@ const PopoverContent = forwardRef<TPopoverContentRef, TPopoverContentProps>(
           align={align}
           sideOffset={sideOffset}
           className={cn(
-            "z-50 flex flex-col gap-6 rounded-md border border-b-primary bg-bg-primary p-3 focus:outline-none",
+            "z-50 flex flex-col gap-6 rounded-md border border-b-muted bg-bg-primary p-3 focus:outline-none",
             "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
             "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
             "data-[side=bottom]:slide-in-from-top-2",

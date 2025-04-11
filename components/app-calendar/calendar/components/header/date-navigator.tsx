@@ -49,7 +49,7 @@ export function DateNavigator({ view, events }: IProps) {
       <div className="flex items-center gap-2">
         <Button
           variant="outline"
-          className="size-6.5 px-0 [&_svg]:size-4.5"
+          className="size-6.5 px-0 [&_svg]:size-4.5 cursor-pointer"
           onClick={handlePrevious}
         >
           <ChevronLeft />
@@ -61,7 +61,7 @@ export function DateNavigator({ view, events }: IProps) {
 
         <Button
           variant="outline"
-          className="size-6.5 px-0 [&_svg]:size-4.5"
+          className="size-6.5 px-0 [&_svg]:size-4.5 cursor-pointer"
           onClick={handleNext}
         >
           <ChevronRight />

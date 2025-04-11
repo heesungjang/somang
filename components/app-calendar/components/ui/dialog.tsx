@@ -87,7 +87,7 @@ DialogClose.displayName = "DialogClose";
 
 // DO NOT ADD OVERFLOW HIDDEN HERE!
 const dialogVariants = cva(
-  "relative z-50 w-full rounded-xl border border-b-primary bg-bg-primary p-0.5 dark:border-b-secondary",
+  "relative z-50 w-full rounded-xl border border-b-muted bg-bg-primary p-0.5 dark:border-b-secondary",
   {
     variants: {
       size: {
@@ -131,7 +131,7 @@ const DialogContent = forwardRef<TDialogContentRef, TDialogContentProps>(
               className={cn(dialogContentClasses)}
               {...props}
             >
-              <div className="flex flex-col gap-4 rounded-[10px] border border-b-primary p-4 dark:border-b-secondary">
+              <div className="flex flex-col gap-4 rounded-[10px] border border-b-muted p-4 dark:border-b-secondary">
                 {children}
               </div>
             </DialogPrimitive.Content>

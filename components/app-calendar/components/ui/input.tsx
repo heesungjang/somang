@@ -17,7 +17,7 @@ const Input = forwardRef<TInputRef, TInputProps>(
         <input
           type={type}
           className={cn(
-            "peer h-9 w-full rounded-md border border-b-primary bg-bg-primary px-3 py-2 text-sm",
+            "peer h-9 w-full rounded-md border border-b-muted bg-bg-primary px-3 py-2 text-sm",
             "placeholder:text-t-placeholder",
             "disabled:cursor-not-allowed disabled:bg-bg-disabled disabled:text-t-disabled",
             "data-[invalid=true]:border-error-500 data-[invalid=true]:bg-error-50 data-[invalid=true]:pr-9 data-[invalid=true]:focus-visible:outline-error-300",

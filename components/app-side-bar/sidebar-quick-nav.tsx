@@ -52,7 +52,15 @@ export const QuickNav = () => {
     );
   }
 
-  const isActiveTab = (href: string) => pathname === href;
+  const isActiveTab = (href: string) => {
+    // For calendar routes, check if the base path matches regardless of view type
+    if (href.includes("/calendar/")) {
+      const calendarBasePath = `/workspace/${viewer?.defaultWorkspaceId}/calendar`;
+      return pathname.startsWith(calendarBasePath);
+    }
+    // For other routes, exact match
+    return pathname === href;
+  };
 
   return (
     <SidebarMenu>

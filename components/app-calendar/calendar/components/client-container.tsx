@@ -133,7 +133,7 @@ export function ClientContainer({ view }: IProps) {
   }, [filteredEvents]);
 
   return (
-    <div className="rounded-xl border">
+    <div className="rounded-mx">
       <CalendarHeader view={view} events={filteredEvents} />
       {view === "day" && (
         <CalendarDayView
