@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lato } from "next/font/google";
 
 // providers
 import { AppClientProvider } from "@/provider/provider-client";
@@ -9,10 +9,10 @@ import { AppServerProvider } from "@/provider/provider-sever";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
-const inter = Inter({
+const lato = Lato({
   subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-lato",
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const rootCn = `${inter.variable} antialiased`;
+  const rootCn = `${lato.variable} antialiased`;
   const rootContainerCn = cn(
     rootCn,
     "h-screen w-full overflow-hidden  relative flex flex-col font-sans",

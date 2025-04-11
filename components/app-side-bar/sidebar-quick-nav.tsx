@@ -7,7 +7,7 @@ import {
 import { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import useViewer from "@/hooks/user/use-viewer";
-import { LucideIcon, Bell, Home } from "lucide-react";
+import { LucideIcon, Bell, Home, Calendar } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
 
@@ -32,6 +32,11 @@ export const QuickNav = () => {
         icon: Bell,
         label: "받은 편지함",
         href: `/workspace/${viewer?.defaultWorkspaceId}/inbox`,
+      },
+      {
+        icon: Calendar,
+        label: "일정",
+        href: `/workspace/${viewer?.defaultWorkspaceId}/calendar/month-view`,
       },
     ],
     [viewer],
