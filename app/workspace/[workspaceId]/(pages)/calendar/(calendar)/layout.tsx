@@ -16,10 +16,7 @@ export default async function Layout({
 
   return (
     <CalendarProvider users={users} events={events}>
-      <div className="mx-auto flex max-w-screen-2xl flex-col gap-4 px-8 py-4">
-        {children}
-        <ChangeBadgeVariantInput />
-      </div>
+      <div className="bg-background">{children}</div>
     </CalendarProvider>
   );
 }
